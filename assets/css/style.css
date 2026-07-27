@@ -1,0 +1,227 @@
+:root {
+            --bg:            #070b14;
+            --bg-2:          #0a0f1c;
+            --surface:       #0e1524;
+            --surface-2:     #131c30;
+            --surface-3:     #1a2440;
+            --border:        rgba(99, 165, 222, 0.12);
+            --border-strong: rgba(0, 212, 255, 0.32);
+            --text:          #e6edf7;
+            --text-2:        #a4b1c7;
+            --text-3:        #6f7e98;
+            --primary:       #00d4ff;
+            --primary-dim:   #0099cc;
+            --accent:        #4d8dff;
+            --accent-2:      #7c5cff;
+            --success:       #10d989;
+            --warning:       #f5a524;
+            --danger:        #ef4444;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            padding: 3rem 1.5rem;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--accent-2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        header p {
+            color: var(--text-3);
+            font-size: 1.1rem;
+        }
+
+        .labs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .lab-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .lab-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--accent-2));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .lab-card:hover {
+            border-color: var(--border-strong);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 212, 255, 0.08);
+        }
+
+        .lab-card:hover::before {
+            opacity: 1;
+        }
+
+        .lab-name {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* pushes text left and logo right */
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .lab-name::before {
+            display: none;
+        }
+
+        .lab-name span::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--primary);
+            box-shadow: 0 0 8px var(--primary);
+        }
+
+        .lab-logo {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .lab-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .meta-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .meta-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-3);
+            font-weight: 500;
+        }
+
+        .meta-value {
+            font-size: 0.95rem;
+            color: var(--text-2);
+        }
+
+        .lab-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .lab-link:hover {
+            color: var(--text);
+        }
+
+        .lab-link svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.2s ease;
+        }
+
+        .lab-link:hover svg {
+            transform: translate(2px, -2px);
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid transparent;
+        }
+
+        .badge-platform {
+            background: rgba(77, 141, 255, 0.12);
+            color: var(--accent);
+            border-color: rgba(77, 141, 255, 0.2);
+        }
+
+        .badge-sub-free {
+            background: rgba(16, 217, 137, 0.12);
+            color: var(--success);
+            border-color: rgba(16, 217, 137, 0.2);
+        }
+
+        .badge-sub-paid {
+            background: rgba(245, 165, 36, 0.12);
+            color: var(--warning);
+            border-color: rgba(245, 165, 36, 0.2);
+        }
+
+        .badge-sub-freemium {
+            background: rgba(0, 212, 255, 0.12);
+            color: var(--primary);
+            border-color: rgba(0, 212, 255, 0.2);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            color: var(--text-3);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .labs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
